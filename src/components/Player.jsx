@@ -322,7 +322,7 @@ const Player = forwardRef(({ seriesList, setIsOpen }, ref) => {
     >
       <button
         onClick={closeVideo}
-        className="absolute w-10 h-10 md:w-14 md:h-14 right-2 top-2 outline-none z-20"
+        className="absolute w-10 h-10 md:w-14 md:h-14 right-2 md:right-7 top-7 outline-none z-20"
       >
         <img
           src="img/close.webp"

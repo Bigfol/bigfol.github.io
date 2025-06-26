@@ -1,6 +1,7 @@
 import { Transition } from "@headlessui/react";
 import { Fragment, useContext, useState } from "react";
 import { SeriesContext } from "./SeriesContext";
+import { DateTime } from "luxon";
 
 const Episode = ({ item, selectEpisode }) => {
   const [isHoverEpisode, setIsHoverEpisode] = useState(false);
@@ -8,11 +9,25 @@ const Episode = ({ item, selectEpisode }) => {
   const [isHoverDownload, setIsHoverDownload] = useState(false);
   const { torrentUrl } = useContext(SeriesContext);
 
+  const scheduled = DateTime.fromISO(`${item.release}T18:00:00`, {
+    zone: "Europe/Moscow",
+  });
+
+  const handleSelectEpisode = () => {
+    const now = DateTime.now().setZone("Europe/Moscow");
+
+    if (now >= scheduled) {
+      selectEpisode(item);
+    } else {
+      console.log("Episode not yet released");
+    }
+  };
+
   return (
     <div className="max-w-[482px] mx-auto">
       <div>
         <div
-          onClick={() => (item.release ? selectEpisode(item) : {})}
+          onClick={handleSelectEpisode}
           className="w-full relative cursor-pointer"
           onMouseEnter={() => setIsHoverEpisode(true)}
           onMouseLeave={() => setIsHoverEpisode(false)}

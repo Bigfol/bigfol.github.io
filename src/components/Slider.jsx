@@ -47,7 +47,7 @@ const Slider = ({ setIsOpen, setEpisode, seriesList, season, seasonTitle }) => {
           </div>
           {seasonTitle && (
             <div
-              className="text-2xl whitespace-nowrap md:text-3xl text-[#443b30] w-auto inline-block bg-[length:100%_56px] md:bg-[length:100%_78px] bg-no-repeat px-3 py-3 md:px-4 md:py-6"
+              className="text-2xl whitespace-nowrap md:text-3xl text-[#443b30] w-auto inline-block bg-[length:100%_56px] md:bg-[length:100%_78px] bg-no-repeat px-3 py-3 md:px-6 md:py-6"
               style={{ backgroundImage: 'url("img/season-title.webp")' }}
             >
               {seasonTitle}

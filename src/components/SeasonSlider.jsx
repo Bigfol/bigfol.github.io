@@ -9,6 +9,7 @@ import Slider from "./Slider";
 const seasonTitle = {
   2: "Неогенный кошмар",
   3: "Грехи отцов",
+  4: "ПАРТНЁРЫ ПО ОПАСНОСТИ"
 };
 
 const findedSeason = (list, season) => {
@@ -92,6 +93,24 @@ const SeasonSlider = () => {
               setEpisode={setEpisode}
               setIsOpen={setIsOpen}
               seasonTitle={seasonTitle[3]}
+            />
+          )}
+          {findedSeason(seriesList, 4) && (
+            <Slider
+              season={4}
+              seriesList={seriesList}
+              setEpisode={setEpisode}
+              setIsOpen={setIsOpen}
+              seasonTitle={seasonTitle[4]}
+            />
+          )}
+          {findedSeason(seriesList, 5) && (
+            <Slider
+              season={5}
+              seriesList={seriesList}
+              setEpisode={setEpisode}
+              setIsOpen={setIsOpen}
+              seasonTitle={seasonTitle[5]}
             />
           )}
         </div>
